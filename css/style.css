@@ -13,10 +13,10 @@ body{
 
 header{
     margin: 3rem auto;
+    text-align: center;
 }
 
 h1{
-    text-align: center;
     font-size: 3rem;
 }
 
@@ -24,10 +24,6 @@ h1 span{
     color: tomato;
 }
 
-
-.wrapper{
-    color: whitesmoke;
-}
 
 .galleryContainer {
     display: grid;
@@ -37,7 +33,7 @@ h1 span{
     grid-template-columns: repeat(auto-fill, minmax(min(100%,25rem), 1fr));
     grid-auto-rows: 10rem;
     grid-auto-flow: dense;
-    gap: 5px;
+    row-gap: 5px;
 }
 
 .galleryContainer img{
@@ -45,12 +41,26 @@ h1 span{
     height: 100%;
     object-fit: cover;
     text-align: center;
+    /* filter: blur(3px) grayscale(80%) invert(80%) ; */
+    filter: blur(3px) grayscale(80%) ;
+    filter: grayscale(100%) ;
+    
+}
+
+.galleryContainer img:hover{
+    cursor: pointer;
+    transform: rotate(2deg) scale(105%);
+    transition: .7s;
+    filter: none;
+    /* border: 1px solid white; */
     
 }
 
 .galleryContainer div{
-    object-fit: cover;
+    overflow: hidden;
 }
+
+
 
 .galleryContainer div:nth-child(1),
 .galleryContainer div:nth-child(5),
@@ -62,4 +72,10 @@ h1 span{
 .galleryContainer div:nth-child(5),
 .galleryContainer div:nth-child(9){
     grid-row: span 2;
+}
+
+@media screen and (min-width:550px) {
+    .galleryContainer{
+        column-gap: 5px;
+    }
 }
